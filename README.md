@@ -12,15 +12,15 @@ Press `F1` in vscode, type `ext install` and then look for `projects`.
 
 **projects.projectsLocation***
 
-你所有的项目存放的文件夹的绝对路径，此文件夹下面的所有一级目录将为一个单独的项目。
+The absolute path of the folder where all your projects are stored，All primary directories below this folder will be a separate project。
 
-可用变量`$home`表示用户目录
+Available variable `$home` for user directory
 
 ```
 "projects.projectsLocation": "$home/web"
 ```
 
-或者配置多个项目目录，这些目录下面的每一个一级目录将作为一个单独的项目。
+Or configure multiple project directories, each of which will be treated as a separate project。
 
 ```
 "projects.projectsLocation": ["$home/web", "$home/client"]
@@ -28,17 +28,17 @@ Press `F1` in vscode, type `ext install` and then look for `projects`.
 
 **projects.showProjectNameInStatusBar**
 
-是否在状态栏左下角显示当前项目名，点击项目名即可快速打开项目列表。`default: true`
+Whether to display the current project name in the lower left corner of the status bar, click on the project name to quickly open the project list 。`default: true`
 
 ```
 "projects.showProjectNameInStatusBar": false
 ```
 
-![projects.showProjectNameInStatusBar](images/screen/statusbar.png)
+![projects.showProjectNameInStatusBar](https://github.com/kurt67/vscode-projects/raw/master/images/screen/statusbar.png)
 
 **projects.openInNewWindow**
 
-是否以新窗口方式打开项目。`default: true`
+Whether to open the project in a new window。`default: true`
 
 ```
 "projects.openInNewWindow": false
@@ -46,7 +46,7 @@ Press `F1` in vscode, type `ext install` and then look for `projects`.
 
 **projects.ignoredFolders**
 
-所有项目文件夹下忽略此种文件夹。`default:["node_modules"]`
+Ignore such folders under all project folders `default:["node_modules"]`
 
 ```
 "projects.ignoredFolders": ["node_modules"]
@@ -58,6 +58,6 @@ Press `F1` in vscode, type `ext install` and then look for `projects`.
 - projects.reload
 - projects.cresate
 
-![commands](images/screen/commands.png)
+![commands](https://github.com/kurt67/vscode-projects/raw/master/images/screen/commands.png)
 
-![projects.list](images/screen/list.png)
+![projects.list](https://github.com/kurt67/vscode-projects/raw/master/images/screen/list.png)
