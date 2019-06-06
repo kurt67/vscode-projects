@@ -94,17 +94,17 @@ export default class Projects {
             .sort((p1, p2) => (p2.count - p1.count) || +(p1.label > p2.label))
             .concat([{
                 label: '$reload',
-                description: '重新加载项目列表',
+                description: 'Reload the list of items',
                 count: 0
             }]);
         let options = {
-            placeHolder: '输入项目名打开该项目',
+            placeHolder: 'Enter the project name to open the project',
             matchOnDescription: false,
             matchOnDetail: false
         };
         window.showQuickPick(projects, options).then(
             selected => this._pickProject(selected),
-            e => this.showInfo(`加载项目失败: ${e}`)
+            e => this.showInfo(`Loading project failed: ${e}`)
         );
     }
     reloadProjects() {
@@ -112,15 +112,15 @@ export default class Projects {
     }
     createProject() {
         let options = <InputBoxOptions>{
-            prompt: '请输入项目名',
-            placeHolder: '请输入项目名',
+            prompt: 'Please enter the project name',
+            placeHolder: 'Please enter the project name',
             validateInput: (input) => {
                 if (!input.trim()) {
-                    return '项目名不能为空';
+                    return 'Project name cannot be empty';
                 }
                 let projects = this.getProjects();
                 if (projects.some(project => project.label === input)) {
-                    return '该项目已经存在';
+                    return 'The project already exists';
                 }
             }
         };
@@ -132,7 +132,7 @@ export default class Projects {
                         this.makeProjectDir(input, projectDirs[0]);
                     } else {
                         window.showQuickPick(projectDirs, {
-                            placeHolder: '请选择项目文件夹',
+                            placeHolder: 'Please select a project folder',
                             matchOnDescription: false,
                             matchOnDetail: false
                         }).then(selected => {
@@ -142,7 +142,7 @@ export default class Projects {
                 }
             }
         },
-            e => this.showError(`创建项目失败：${e}`));
+            e => this.showError(`Failed to create project: ${e}`));
     }
     makeProjectDir(name: string, dir: string, ) {
         let projectDir = path.join(dir, name);
@@ -164,7 +164,7 @@ export default class Projects {
     getProjects(): ProjectElement[] {
         let projects = this._store.get('projects');
         /**
-         * @desc 兼容老版本，无count
+         * @desc Compatible with older versions，no count
          */
         if (projects) {
             return projects;
@@ -210,7 +210,7 @@ export default class Projects {
         }
 
         if (!temp.length) {
-            this.showError('projects.projectsLocation 请配置项目目录');
+            this.showError('projects.projectsLocation Please configure the project directory');
             return;
         }
 
@@ -225,7 +225,7 @@ export default class Projects {
         if (result.size) {
             return this._projectDirs = Array.from(result);
         } else {
-            this.showError('projects.projectsLocation 项目目录必须为正确的文件夹');
+            this.showError('projects.projectsLocation Project directory must be the correct folder');
         }
     }
     checkDir(dir: string): any {
@@ -254,7 +254,7 @@ export default class Projects {
     }
     clearCache(): Thenable<void> {
         /**
-         * @desc 缓存老的projects
+         * @desc Cache old projects
          */
         this._projects = this._store.get('projects');
         return this._store.clear('projects');
@@ -264,7 +264,7 @@ export default class Projects {
         let url: Uri = Uri.file(projectPath);
         commands.executeCommand('vscode.openFolder', url, openInNewWindow).then(
             () => { },
-            e => this.showInfo(`项目目录打开失败：${e}`)
+            e => this.showInfo(`Project directory open failed: ${e}`)
         );
     }
     dispose() {
@@ -275,7 +275,7 @@ export default class Projects {
             return;
         }
         /**
-         * @desc 快捷重新加载项目
+         * @desc Quickly reload the project
          */
         if (selected.label === '$reload') {
             this.reloadProjects();
