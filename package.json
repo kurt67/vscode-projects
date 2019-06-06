@@ -16,13 +16,13 @@
         "switch",
         "manage"
     ],
-    "homepage": "https://github.com/huanz/vscode-projects/blob/master/README.md",
+    "homepage": "https://github.com/kurt67/vscode-projects/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/huanz/vscode-projects.git"
+        "url": "https://github.com/kurt67/vscode-projects.git"
     },
     "bugs": {
-        "url": "https://github.com/huanz/vscode-projects/issues"
+        "url": "https://github.com/kurt67/vscode-projects/issues"
     },
     "icon": "images/projects.png",
     "activationEvents": [
